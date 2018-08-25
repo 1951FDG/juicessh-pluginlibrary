@@ -1,5 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">JuiceSSH-PluginLibrary</string>
     <string name="juicessh_version">JuiceSSH Version</string>
     <string name="juicessh_wrong_version">This JuiceSSH plugin requires that JuiceSSH %s (or newer) be installed. Please upgrade your copy of JuiceSSH.</string>
     <string name="install">Install</string>
