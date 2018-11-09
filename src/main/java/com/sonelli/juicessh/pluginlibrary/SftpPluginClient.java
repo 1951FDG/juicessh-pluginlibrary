@@ -63,7 +63,7 @@ public class SftpPluginClient extends ConnectionPluginClient {
 
         this.connection = new ServiceConnection(){
             @Override
-            public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            public void onServiceConnected(ComponentName name, IBinder iBinder) {
                 Log.d(TAG, "Bound to the JuiceSSH SFTP plugin service");
                 isConnected = true;
                 service = ISftpPluginService.Stub.asInterface(iBinder);
@@ -76,7 +76,7 @@ public class SftpPluginClient extends ConnectionPluginClient {
             }
 
             @Override
-            public void onServiceDisconnected(ComponentName componentName) {
+            public void onServiceDisconnected(ComponentName name) {
                 Log.d(TAG, "Unbound from the JuiceSSH SFTP plugin service");
                 isConnected = false;
                 service = null;

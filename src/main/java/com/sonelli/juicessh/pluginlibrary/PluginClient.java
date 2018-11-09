@@ -14,6 +14,8 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.RemoteException;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -41,12 +43,12 @@ public class PluginClient extends ConnectionPluginClient {
     }
 
     @Override
-    protected void add_connect_intent_extras(Intent intent) {
+    protected void add_connect_intent_extras(@NonNull Intent intent) {
         intent.putExtra("background", true);
     }
 
     @Override
-    public void start(Context context, final OnClientStartedListener listener) {
+    public void start(@NonNull Context context, @NonNull final OnClientStartedListener listener) {
 
         // Check the JuiceSSH version
         if (!checkVersion(context)) return;
@@ -85,7 +87,7 @@ public class PluginClient extends ConnectionPluginClient {
 
         this.connection = new ServiceConnection(){
             @Override
-            public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            public void onServiceConnected(ComponentName name, IBinder iBinder) {
                 Log.d(TAG, "Bound to the JuiceSSH plugin service");
                 isConnected = true;
                 service = IPluginService.Stub.asInterface(iBinder);
@@ -98,7 +100,7 @@ public class PluginClient extends ConnectionPluginClient {
             }
 
             @Override
-            public void onServiceDisconnected(ComponentName componentName) {
+            public void onServiceDisconnected(ComponentName name) {
                 Log.d(TAG, "Unbound from the JuiceSSH plugin service");
                 isConnected = false;
                 service = null;
@@ -232,7 +234,7 @@ public class PluginClient extends ConnectionPluginClient {
     }
 
     @Override
-    public void stop(Context context) {
+    public void stop(@NonNull Context context) {
         // Disconnect the Connection Plugin Service
         super.stop(context);
         context.unbindService(connection);
@@ -251,7 +253,7 @@ public class PluginClient extends ConnectionPluginClient {
      * @param command The command(s) to write
      * @throws ServiceNotConnectedException
      */
-    public void writeToSession(int sessionId, String sessionKey, String command) throws ServiceNotConnectedException {
+    public void writeToSession(int sessionId, @NonNull String sessionKey, @NonNull String command) throws ServiceNotConnectedException {
 
         if(!isConnected())
             throw new ServiceNotConnectedException();
@@ -272,7 +274,7 @@ public class PluginClient extends ConnectionPluginClient {
      * @param listener The callback listener
      * @throws ServiceNotConnectedException
      */
-    public void executeCommandOnSession(int sessionId, String sessionKey, String command, final OnSessionExecuteListener listener)  throws ServiceNotConnectedException {
+    public void executeCommandOnSession(int sessionId, @NonNull String sessionKey, @NonNull String command, @Nullable final OnSessionExecuteListener listener)  throws ServiceNotConnectedException {
 
         if(!isConnected())
             throw new ServiceNotConnectedException();
@@ -281,13 +283,13 @@ public class PluginClient extends ConnectionPluginClient {
             service.executeCommandOnSession(sessionId, sessionKey, command, new ISessionExecuteListener.Stub() {
 
                 @Override
-                public void onError(final int reason, final String error) throws RemoteException {
+                public void onError(final int reason, final String message) throws RemoteException {
                     if(reason == Errors.WRONG_CONNECTION_TYPE){
                         handler.post(new Runnable() {
                             @Override
                             public void run() {
                                 if(listener != null)
-                                    listener.onError(Errors.WRONG_CONNECTION_TYPE, error);
+                                    listener.onError(Errors.WRONG_CONNECTION_TYPE, message);
                             }
                         });
                     }
@@ -326,7 +328,7 @@ public class PluginClient extends ConnectionPluginClient {
      * @param sessionKey The session key returned when the session was started
      * @throws ServiceNotConnectedException
      */
-    public void attach(int sessionId, String sessionKey) throws ServiceNotConnectedException {
+    public void attach(int sessionId, @NonNull String sessionKey) throws ServiceNotConnectedException {
 
         if(!isConnected())
             throw new ServiceNotConnectedException();

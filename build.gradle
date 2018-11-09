@@ -4,13 +4,19 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.0-beta05'
+        classpath 'com.android.tools.build:gradle:3.2.1'
+    }
+}
+
+gradle.projectsEvaluated {
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << "-Xlint:deprecation"
     }
 }
 
 apply plugin: 'com.android.library'
 
-version = "1.0.13"
+version = "1.0.14"
 group = "com.sonelli"
 
 repositories {
@@ -19,7 +25,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.android.support:support-fragment:27.1.1'
+    implementation 'com.android.support:support-fragment:28.0.0'
 //    compile project(':jsch')
 }
 

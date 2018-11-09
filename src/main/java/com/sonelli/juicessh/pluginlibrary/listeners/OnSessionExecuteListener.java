@@ -1,7 +1,9 @@
 package com.sonelli.juicessh.pluginlibrary.listeners;
 
+import android.support.annotation.NonNull;
+
 public interface OnSessionExecuteListener {
     void onCompleted(int returnCode);
-    void onOutputLine(String line);
-    void onError(int reason, String Message);
+    void onOutputLine(@NonNull String line);
+    void onError(int reason, @NonNull String Message);
 }

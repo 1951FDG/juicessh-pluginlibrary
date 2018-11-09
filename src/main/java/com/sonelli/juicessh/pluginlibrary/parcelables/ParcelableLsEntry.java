@@ -60,8 +60,8 @@ public class ParcelableLsEntry implements Parcelable{
     @SuppressWarnings("unused")
     public static final Creator<ParcelableLsEntry> CREATOR = new Creator<ParcelableLsEntry>() {
         @Override
-        public ParcelableLsEntry createFromParcel(Parcel in) {
-            return new ParcelableLsEntry(in);
+        public ParcelableLsEntry createFromParcel(Parcel source) {
+            return new ParcelableLsEntry(source);
         }
 
         @Override

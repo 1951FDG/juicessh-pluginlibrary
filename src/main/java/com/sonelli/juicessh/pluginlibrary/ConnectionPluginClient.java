@@ -157,7 +157,7 @@ abstract class ConnectionPluginClient {
         this.connection = new ServiceConnection(){
 
             @Override
-            public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            public void onServiceConnected(ComponentName name, IBinder iBinder) {
                 Log.d(TAG, "Bound to the JuiceSSH connection plugin service");
                 isConnected = true;
                 service = IConnectionPluginService.Stub.asInterface(iBinder);
@@ -170,7 +170,7 @@ abstract class ConnectionPluginClient {
             }
 
             @Override
-            public void onServiceDisconnected(ComponentName componentName) {
+            public void onServiceDisconnected(ComponentName name) {
                 Log.d(TAG, "Unbound from the JuiceSSH connection plugin service");
                 isConnected = false;
                 service = null;
@@ -283,6 +283,7 @@ abstract class ConnectionPluginClient {
                             onSessionStartedListener.onSessionStarted(sessionId, sessionKey);
                         }
                     });
+                    break;
 
                 case Activity.RESULT_CANCELED:
                     handler.post(new Runnable() {

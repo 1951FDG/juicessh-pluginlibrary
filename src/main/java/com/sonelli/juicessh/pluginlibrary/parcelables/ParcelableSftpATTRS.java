@@ -180,8 +180,8 @@ public final class ParcelableSftpATTRS implements Parcelable {
     @SuppressWarnings("unused")
     public static final Creator<ParcelableSftpATTRS> CREATOR = new Creator<ParcelableSftpATTRS>() {
         @Override
-        public ParcelableSftpATTRS createFromParcel(Parcel in) {
-            return new ParcelableSftpATTRS(in);
+        public ParcelableSftpATTRS createFromParcel(Parcel source) {
+            return new ParcelableSftpATTRS(source);
         }
 
         @Override

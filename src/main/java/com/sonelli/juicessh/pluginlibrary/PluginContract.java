@@ -15,18 +15,18 @@ public class PluginContract {
      */
     public static final class Connections implements BaseColumns {
 
-        public final static Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/connections");
-        public final static String PERMISSION_READ = "com.sonelli.juicessh.api.v1.permission.READ_CONNECTIONS";
-        public final static String PERMISSION_WRITE = "com.sonelli.juicessh.api.v1.permission.WRITE_CONNECTIONS";
+        public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/connections");
+        public static final String PERMISSION_READ = "com.sonelli.juicessh.api.v1.permission.READ_CONNECTIONS";
+        public static final String PERMISSION_WRITE = "com.sonelli.juicessh.api.v1.permission.WRITE_CONNECTIONS";
 
         public static final String CONTENT_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE + "/com.sonelli.juicessh.models.connection";
         public static final String CONTENT_ITEM_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/com.sonelli.juicessh.models.connection";
         public static final String SORT_ORDER_DEFAULT = "name COLLATE NOCASE ASC";
 
-        public final static int TYPE_SSH = 0;
-        public final static int TYPE_MOSH = 1;
-        public final static int TYPE_LOCAL = 2;
-        public final static int TYPE_TELNET = 3;
+        public static final int TYPE_SSH = 0;
+        public static final int TYPE_MOSH = 1;
+        public static final int TYPE_LOCAL = 2;
+        public static final int TYPE_TELNET = 3;
 
         public static final String TABLE_NAME = "connection";
         private static final String _ID = "_id";
@@ -56,9 +56,9 @@ public class PluginContract {
      */
     public static final class Snippets implements BaseColumns {
 
-        public final static Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/snippets");
-        public final static String PERMISSION_READ = "com.sonelli.juicessh.api.v1.permission.READ_SNIPPETS";
-        public final static String PERMISSION_WRITE = "com.sonelli.juicessh.api.v1.permission.WRITE_SNIPPETS";
+        public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/snippets");
+        public static final String PERMISSION_READ = "com.sonelli.juicessh.api.v1.permission.READ_SNIPPETS";
+        public static final String PERMISSION_WRITE = "com.sonelli.juicessh.api.v1.permission.WRITE_SNIPPETS";
 
         public static final String CONTENT_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE + "/com.sonelli.juicessh.models.snippet";
         public static final String CONTENT_ITEM_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/com.sonelli.juicessh.models.snippet";
@@ -86,17 +86,17 @@ public class PluginContract {
      */
     public static final class PortForwards implements BaseColumns {
 
-        public final static Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/portforwards");
-        public final static String PERMISSION_READ = "com.sonelli.juicessh.api.v1.permission.READ_PORT_FORWARDS";
-        public final static String PERMISSION_WRITE = "com.sonelli.juicessh.api.v1.permission.WRITE_PORT_FORWARDS";
+        public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/portforwards");
+        public static final String PERMISSION_READ = "com.sonelli.juicessh.api.v1.permission.READ_PORT_FORWARDS";
+        public static final String PERMISSION_WRITE = "com.sonelli.juicessh.api.v1.permission.WRITE_PORT_FORWARDS";
 
         public static final String CONTENT_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE + "/com.sonelli.juicessh.models.portforward";
         public static final String CONTENT_ITEM_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/com.sonelli.juicessh.models.portforward";
         public static final String SORT_ORDER_DEFAULT = "name ASC";
 
-        final public static int MODE_LOCAL = 0;
-        final public static int MODE_REMOTE = 1;
-        final public static int MODE_SOCKS = 2;
+        public static final int MODE_LOCAL = 0;
+        public static final int MODE_REMOTE = 1;
+        public static final int MODE_SOCKS = 2;
 
         public static final String TABLE_NAME = "portforward";
         private static final String _ID = "_id";
@@ -131,9 +131,9 @@ public class PluginContract {
      */
     public static final class ConnectionGroups implements BaseColumns {
 
-        public final static Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/connectiongroups");
-        public final static String PERMISSION_READ = "com.sonelli.juicessh.api.v1.permission.READ_CONNECTION_GROUPS";
-        public final static String PERMISSION_WRITE = "com.sonelli.juicessh.api.v1.permission.WRITE_CONNECTION_GROUPS";
+        public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/connectiongroups");
+        public static final String PERMISSION_READ = "com.sonelli.juicessh.api.v1.permission.READ_CONNECTION_GROUPS";
+        public static final String PERMISSION_WRITE = "com.sonelli.juicessh.api.v1.permission.WRITE_CONNECTION_GROUPS";
 
         public static final String CONTENT_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE + "/com.sonelli.juicessh.models.connectiongroup";
         public static final String CONTENT_ITEM_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/com.sonelli.juicessh.models.connectiongroup";
@@ -159,9 +159,9 @@ public class PluginContract {
      */
     public static final class ConnectionGroupMemberships implements BaseColumns {
 
-        public final static Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/connectiongroupmemberships");
-        public final static String PERMISSION_READ = "com.sonelli.juicessh.api.v1.permission.READ_CONNECTION_GROUPS";
-        public final static String PERMISSION_WRITE = "com.sonelli.juicessh.api.v1.permission.WRITE_CONNECTION_GROUPS";
+        public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/connectiongroupmemberships");
+        public static final String PERMISSION_READ = "com.sonelli.juicessh.api.v1.permission.READ_CONNECTION_GROUPS";
+        public static final String PERMISSION_WRITE = "com.sonelli.juicessh.api.v1.permission.WRITE_CONNECTION_GROUPS";
 
         public static final String CONTENT_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE + "/com.sonelli.juicessh.models.connectiongroupmembership";
         public static final String CONTENT_ITEM_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/com.sonelli.juicessh.models.connectiongroupmembership";
@@ -189,8 +189,8 @@ public class PluginContract {
      */
     public static final class PluginLog implements BaseColumns {
 
-        public final static Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/pluginlog");
-        public final static String PERMISSION_READ = "com.sonelli.juicessh.api.v1.permission.READ_PLUGIN_LOG";
+        public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/pluginlog");
+        public static final String PERMISSION_READ = "com.sonelli.juicessh.api.v1.permission.READ_PLUGIN_LOG";
 
         public static final String CONTENT_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE + "/com.sonelli.juicessh.models.pluginlog";
         public static final String CONTENT_ITEM_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/com.sonelli.juicessh.models.pluginlog";
