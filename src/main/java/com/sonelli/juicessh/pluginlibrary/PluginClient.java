@@ -185,14 +185,14 @@ public class PluginClient extends ConnectionPluginClient {
                     public void onClick(DialogInterface dialog, int which) {
 
                         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.sonelli.juicessh"));
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY | Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY | Intent.FLAG_ACTIVITY_NEW_DOCUMENT);
 
                         try {
                             context.startActivity(intent);
                         } catch (ActivityNotFoundException e) {
                             // Play Store not installed - send user to website
                             Intent website = new Intent(Intent.ACTION_VIEW, Uri.parse("http://juicessh.com/changelog"));
-                            website.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY | Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+                            website.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY | Intent.FLAG_ACTIVITY_NEW_DOCUMENT);
                             context.startActivity(website);
                         }
 
@@ -218,7 +218,7 @@ public class PluginClient extends ConnectionPluginClient {
                     public void onClick(DialogInterface dialog, int which) {
 
                         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + context.getPackageName()));
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY | Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY | Intent.FLAG_ACTIVITY_NEW_DOCUMENT);
 
                         try {
                             context.startActivity(intent);

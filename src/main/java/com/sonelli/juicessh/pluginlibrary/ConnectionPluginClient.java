@@ -88,7 +88,7 @@ abstract class ConnectionPluginClient {
         // we can always do an resume/attach later.
         Intent intent = new Intent(Intent.ACTION_VIEW);
         //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT);
         intent.setData(Uri.parse("ssh://" + id));
         add_connect_intent_extras(intent);
         activity.startActivityForResult(intent, requestId);
@@ -121,7 +121,7 @@ abstract class ConnectionPluginClient {
         // we can always do an resume/attach later.
         Intent intent = new Intent(Intent.ACTION_VIEW);
         //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT);
         intent.setData(Uri.parse("ssh://" + id));
         add_connect_intent_extras(intent);
         fragment.startActivityForResult(intent, requestId);
