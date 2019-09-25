@@ -1,6 +1,6 @@
 package com.sonelli.juicessh.pluginlibrary.listeners;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 public interface OnSessionExecuteListener {
     void onCompleted(int returnCode);
