@@ -16,7 +16,7 @@ gradle.projectsEvaluated {
 
 apply plugin: 'com.android.library'
 
-version = "1.0.14"
+version = "1.0.16"
 group = "com.sonelli"
 
 repositories {
