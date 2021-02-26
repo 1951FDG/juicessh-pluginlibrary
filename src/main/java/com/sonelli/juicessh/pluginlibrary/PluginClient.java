@@ -13,6 +13,7 @@ import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.IBinder;
+import android.os.Looper;
 import android.os.RemoteException;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -32,7 +33,7 @@ public class PluginClient extends ConnectionPluginClient {
     private ServiceConnection connection;
     private boolean isConnected = false;
     private IPluginService service;
-    private Handler handler = new Handler();
+    private Handler handler = new Handler(Looper.getMainLooper());
 
     // The minimum JuiceSSH version with plugins support
     public static final int MINIMUM_JUICESSH_VERSION_CODE = 89;

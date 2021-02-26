@@ -57,7 +57,6 @@ public class ParcelableLsEntry implements Parcelable{
         dest.writeString(toString);
     }
 
-    @SuppressWarnings("unused")
     public static final Creator<ParcelableLsEntry> CREATOR = new Creator<ParcelableLsEntry>() {
         @Override
         public ParcelableLsEntry createFromParcel(Parcel source) {

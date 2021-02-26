@@ -8,6 +8,7 @@ import android.content.ServiceConnection;
 import android.content.pm.ResolveInfo;
 import android.os.Handler;
 import android.os.IBinder;
+import android.os.Looper;
 import android.os.RemoteException;
 import android.util.Log;
 
@@ -26,7 +27,7 @@ public class SftpPluginClient extends ConnectionPluginClient {
     private ServiceConnection connection;
     private boolean isConnected = false;
     private ISftpPluginService service;
-    private Handler handler = new Handler();
+    private Handler handler = new Handler(Looper.getMainLooper());
 
 
     @Override

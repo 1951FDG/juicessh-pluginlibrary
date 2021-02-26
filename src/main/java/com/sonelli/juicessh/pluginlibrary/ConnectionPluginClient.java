@@ -12,6 +12,7 @@ import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.IBinder;
+import android.os.Looper;
 import android.os.RemoteException;
 import androidx.fragment.app.Fragment;
 import android.util.Log;
@@ -35,7 +36,7 @@ abstract class ConnectionPluginClient {
     protected boolean isConnected = false;
     protected IConnectionPluginService service;
     protected SparseArray<OnSessionStartedListener> sessionStartedListeners = new SparseArray<OnSessionStartedListener>();
-    protected final Handler handler = new Handler();
+    protected final Handler handler = new Handler(Looper.getMainLooper());
 
     protected boolean isConnected() {
         return isConnected;

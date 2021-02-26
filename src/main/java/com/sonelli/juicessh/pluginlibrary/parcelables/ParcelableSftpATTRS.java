@@ -177,7 +177,6 @@ public final class ParcelableSftpATTRS implements Parcelable {
         dest.writeString(toString);
     }
 
-    @SuppressWarnings("unused")
     public static final Creator<ParcelableSftpATTRS> CREATOR = new Creator<ParcelableSftpATTRS>() {
         @Override
         public ParcelableSftpATTRS createFromParcel(Parcel source) {
