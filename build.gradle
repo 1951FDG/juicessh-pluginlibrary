@@ -35,7 +35,7 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.fragment:fragment:1.3.0'
+    implementation 'androidx.fragment:fragment:1.3.4'
 }
 
 afterEvaluate {
@@ -45,7 +45,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.github.1951FDG'
                 artifactId = 'juicessh-pluginlibrary'
-                version = '1.0.17'
+                version = '1.0.18'
             }
         }
     }
